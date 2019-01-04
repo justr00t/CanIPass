@@ -1,0 +1,148 @@
+.logo {
+    font-size: 200px;
+}
+
+body {
+    padding-top: 60px;
+}
+
+select{
+    width: 250px;
+    height: 30px;
+}
+
+footer {
+    /*background-color: #43a047;*/
+    color: #f5f5f5;
+    padding: 32px;
+    background-color: #222222;
+}
+
+#mobile_menu {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    #desktop_menu { display: none; }
+    #mobile_menu { display: inline-block; }
+    body {
+        padding-top: 80px;
+    }
+}
+
+.big {
+    font-size: 175px;
+}
+
+.navbar-header {
+    width: 150px;
+    border-right: 0px;
+}
+
+#navbar_logo {
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+    width: 50px;
+}
+
+.navbar-custom {
+    //background-color:#43a047;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.custom-footer {
+
+}
+
+.rule {
+    height: 4px;
+    background: #000;
+}
+.rule:before, .rule:after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 10px;
+    float: left;
+    background: #000;
+    margin-top: -3px;
+}
+.rule:after {
+    float: right;
+}
+
+.scale-container {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    position: relative;
+}
+.scale-circle {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: solid 4px black;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    left: calc(50% - 5px);
+}
+.scale-circle2 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: solid 4px black;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    left: calc(0% - 5px);
+}
+.blue {
+    margin-top: 20px;
+    background: #3EB2EF;
+}
+.blue .circle {
+    background: #3EB2EF;
+    border-color: #3EB2EF;
+}
+
+
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    //background-color: #33aa33;
+    background-color: #347AB6;
+}
+
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+
+.custom-container-fluid {
+    margin: 0 auto;
+    overflow: hidden;
+}

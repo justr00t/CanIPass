@@ -1,0 +1,19 @@
+extends layoutLoggedIn
+
+block content
+    body
+        div.container-fluid#analysis-root
+
+    footer.text-center.custom-footer
+        p Can I Pass By NSSolutions
+    block scripts
+        script.
+          var rating = !{rating};
+          var loggedIn = !{loggedIn};
+          var courses = !{semesterInfo};
+          var reasons = !{reasons};
+          var fields = !{fields};
+          var fieldDescriptions = !{fieldDescriptions};
+          var correspFields = !{correspFields};
+        script(src='/javascripts/rating-bundle.js')
+

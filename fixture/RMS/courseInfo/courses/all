@@ -1,0 +1,23 @@
+[
+
+{
+"major": "CS",
+"courses": ["cs1331", "cs2340", "cs1301", "cs2200"]
+},
+
+{
+"major": "ME",
+"courses": ["cs1331", "cs2340", "cs1301", "cs2200"]
+},
+
+{
+"major": "IE",
+"courses": ["cs1331", "cs2340", "cs1301", "cs2200"]
+},
+
+{
+"major": "AE",
+"courses": ["cs1331", "cs2340", "cs1301", "cs2200"]
+}
+
+]

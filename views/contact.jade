@@ -1,0 +1,54 @@
+extends layout
+
+body
+    .container-fluid
+        block content
+            .row.text-center
+                .col-md-4.col-md-offset-4
+                    h1 Contact Us
+            br
+            .row.text-center
+                .col-md-4.col-md-offset-4
+                    .form-group
+                        form.text-center(action='/contact', method='post')
+                              p.form_name
+                                input#yourname(type='text', placeholder='Your name', name='name', required='', size='40')
+                              p.company
+                                input#yourcompany(type='comptext', placeholder='Your company name', name='company', size='40')
+                              p.form_email
+                                input#youremail(type='text', placeholder='Your email', name='email', required='', size='40')
+                              p.form_textareas
+                                textarea#yourmessage(type='message', placeholder='How can we help you?', name='message', required='', cols='40', rows='10').form-control
+                              p
+                                input.lead-form-button-submit(type='submit', value='Send Your Message')
+
+                            .alert.alert-dismissable.alert-danger#emailAlert(style="visibility: hidden")
+                                button.close( type="button", data-dismiss="alert" ) ×
+                                | Email is not valid. Please check your email and try again!
+                            .alert.alert-dismissable.alert-success#successAlert(style="visibility: hidden")
+                                button.close( type="button", data-dismiss="alert" ) ×
+                                | Message Sent! Thank you for your message.
+
+
+block scripts
+
+    script.
+        window.onload = function () {
+            console.log(type === "success")
+            if (type === "success") {
+                var alert = document.getElementById("successAlert");
+                alert.style.visibility = "visible";
+            }
+            if (type === "error") {
+                var alert = document.getElementById("emailAlert");
+                alert.style.visibility = "visible";
+            }
+            if (type === "empty") {
+                var alert = document.getElementById("emptyAlert");
+                alert.style.visibility = "visible";
+            }
+
+        };
+
+    script.
+        var type = !{type}

@@ -1,0 +1,23 @@
+extends layoutLoggedIn
+
+block content
+    body
+        div.container-fluid
+            .row
+                .col-md-10.col-md-offset-1
+                    h1(style="display:inline-block") Feedback
+                    h2(style="display:inline-block;padding-left:15px") #{semesterNamePretty}
+                    hr
+            .row
+                form(method='post').text-left
+                    .form-group#root
+                    .div
+                        input(type='hidden', name='courseInfo', value=semesterInfo).form-control
+                        input(type='hidden', name='semesterName', value=semesterName).form-control
+            br
+            br
+    block scripts
+        script.
+            var semesterInfo = !{semesterInfo}
+            var semesterName = !{semesterName}
+        script(src='/javascripts/feedback-bundle.js')

@@ -1,0 +1,36 @@
+extends layoutLoggedIn
+
+block content
+    div.container-fluid
+        .row
+            br
+            .col-md-6.col-md-offset-1
+                h1 Can I Pass?
+                p
+                    | You may be asking yourself as a student at Georgia Tech. We'll answer that for you!
+                    | Select a major, a course, a professor, and repeat until you have the classes you want to take.
+                    | Feel free to do that for one class, two classes, or any number up to six classes.
+                    | Hit the "Can I Pass?" button to decide if this semester is the right one for you!
+            .col-md-4.col-md-offset-1
+                img(src="/images/Picture1.png", style="max-width:170px; max-height:170px; width: auto; height: auto;")
+            br
+        .row
+            hr
+        .row
+            .col-md-12.col-md-offset-1
+                h1 Make Your Semester
+        .row#root
+        .row
+            .col-md-2.col-md-offset-9
+                br
+                button.btn.btn-primary.btn-lg#RateMe(type='button', onclick='generateRating()') Can I Pass?
+                br
+                br
+                br
+
+    footer.text-center.custom-footer
+        p Can I Pass By NSSolutions
+block scripts
+    script.
+        var courseInfo = !{courseInfo}
+    script(src='/javascripts/home-bundle.js')

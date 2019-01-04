@@ -1,0 +1,132 @@
+extends layout
+
+block content
+    div.container-fluid
+        .row
+            br
+            .col-md-6.col-md-offset-1
+                h1 Class Reviews
+                hr
+                h2 Select a class to see reviews
+                form(method="post")
+                    .form-group
+                        h3 Select Major:
+                        select(name = 'major')#major1
+                        h3 Select Class:
+                        select(name = 'class')#course1
+                    button.btn.btn-default(type='submit') Submit
+        .row
+            .col-md-8.col-md-offset-1
+                hr
+                h1 #{className} Reviews
+                table.table
+                    thead
+                        tr
+                            //th Review
+                    tbody#reviewList
+
+block scripts
+    script.
+        var majors = [];
+        var courses = [];
+
+
+        function getMajors() {
+            courseInfo.forEach(function (item) {
+                if (majors.indexOf(item.major) == -1) {
+                    majors.push(item.major);
+                }
+            });
+            majors.sort();
+        }
+
+
+        function getCourses(major) {
+            courses = []
+            courseInfo.forEach(function (item) {
+                if (courses.indexOf(item.course) == -1 && item.major == major) {
+                    courses.push(item.course);
+                }
+            });
+            courses.sort();
+        }
+
+
+        function fillMajors(majorSelectorID) {
+            var selector = document.getElementById(majorSelectorID);
+            removeAllOptions(selector);
+            selector.innerHTML = '';
+            var blankOption = document.createElement('option');
+            blankOption.innerHTML = '-- Select a Major --';
+            blankOption.value = 'blank'
+            blankOption.disabled = true;
+            blankOption.selected = true;
+            blankOption.hidden = true;
+            selector.appendChild(blankOption);
+            majors.forEach(function (major) {
+                var option = document.createElement('option');
+                option.value = major;
+                option.innerHTML = major;
+                selector.appendChild(option);
+            });
+        }
+
+
+        function fillCourses(courseSelectorID) {
+            var select = document.getElementById(courseSelectorID);
+            select.innerHTML = '';
+            var blankOption = document.createElement('option');
+            blankOption.value = 'blank'
+            blankOption.innerHTML = '-- Select a Course --';
+            blankOption.disabled = true;
+            blankOption.selected = true;
+            blankOption.hidden = true;
+            select.appendChild(blankOption);
+            courses.forEach(function (course) {
+                var option = document.createElement('option');
+                option.value = course;
+                option.innerHTML = course;
+                select.appendChild(option);
+            });
+        }
+
+        function setSelectorOnChanges() {
+            var majorSelector1 = document.getElementById('major1');
+            majorSelector1.onchange = function () {
+                getCourses(majorSelector1.options[majorSelector1.selectedIndex].value);
+                fillCourses('course1');
+            }
+        }
+
+        function removeAllOptions(selector) {
+            var i;
+            for (i = selector.options.length - 1; i >= 0; i--) {
+                selector.remove(i);
+            }
+        }
+
+        var reviewList = document.getElementById('reviewList');
+        window.onload = function () {
+            setSelectorOnChanges()
+            //showSections(['class1']);
+            getMajors();
+            fillMajors('major1');
+            console.log('hey');
+            if (reviews != null) {
+                reviews.forEach(function (review) {
+                    var row = document.createElement('tr');
+
+                    var comment = document.createElement('td');
+
+
+                    comment.innerHTML = review;
+                    row.appendChild(comment);
+
+                    reviewList.appendChild(row);
+                });
+            }
+        }
+
+    script.
+        var reviews = !{reviews}
+        var courseInfo = !{courseInfo}

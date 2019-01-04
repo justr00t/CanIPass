@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/customStyle.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/contact.css')
+
+    title CS4261 - NS Solutions
+
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top.navbar-custom
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand(href='/') Can I Pass?
+          //a.navbar-brand(style='font-size:10px') by NS Solutions
+        ul#desktop_menu.nav.navbar-nav.navbar-right
+          li
+            a(href='/') Home
+          li
+            a(href='/profile') Profile
+          li
+            a(href='/reviews') Class Reviews
+          li
+            a(href='/logout') Logout
+          li
+            a(href='/contact') Contact Us
+        ul#mobile_menu.nav.navbar-nav.navbar-right
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown") Menu
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='/') Home
+              li
+                a(href='/profile') Profile
+              li
+                a(href='/reviews') Class Reviews
+              li
+                a(href='/logout') Logout
+              li
+                a(href='/contact') Contact Us
+
+    block content
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+    block scripts

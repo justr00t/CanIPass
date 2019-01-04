@@ -1,0 +1,37 @@
+[
+  {
+    "course": "ACCT 2101",
+    "professor": "Turner, Deborah H",
+    "major": "ACCT - Accounting",
+    "gpa": 3.344,
+    "credits": 0
+  },
+  {
+    "course": "ACCT 2102",
+    "professor": "Surysekar, Krishnamurthy",
+    "major": "ACCT - Accounting",
+    "gpa": 2.61667,
+    "credits": 0
+  },
+  {
+    "course": "AE 1350",
+    "professor": "Komerath, Narayanan M",
+    "major": "AE - Aerospace Engineering",
+    "gpa": 3.37571,
+    "credits": 0
+  },
+  {
+    "course": "AE 2020",
+    "professor": "Funk, Robert B",
+    "major": "AE - Aerospace Engineering",
+    "gpa": 2.83423,
+    "credits": 0
+  },
+  {
+    "course": "AE 2220",
+    "professor": "McGill, David J",
+    "major": "AE - Aerospace Engineering",
+    "gpa": 2.8225,
+    "credits": 0
+  }
+]

@@ -1,0 +1,92 @@
+extends layoutLoggedIn
+
+block content
+    div.container-fluid
+        .row
+            br
+            .col-md-6.col-md-offset-1
+                h1 #{userName}
+        .row
+            .col-md-6.col-md-offset-1
+                h2 Saved Semesters
+        .row
+            .col-md-8.col-md-offset-1.table-responsive
+                table.table
+                    thead
+                        tr
+                            th Name
+                            th Our Rating
+                            th User Rating
+                            th Delete Semester
+                    tbody#semesterList
+        #myModal.modal.fade(role='dialog')
+            .modal-dialog
+                // Modal content
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal') ×
+                        h4.modal-title Remove Semester
+                    .modal-body
+                        p Are you sure you want to delete your entire semester?
+                    .modal-footer
+                        form.text-center(method="post")
+                            input#semesterName(type='hidden', name='semesterName').form-control
+                            button.btn.btn-default(type='submit') Delete
+
+block scripts
+    script.
+        var semesterList = document.getElementById('semesterList');
+        window.onload = function () {
+            semesterInfo.forEach(function (semester) {
+                var row = document.createElement('tr');
+
+                var name = document.createElement('td');
+                var rank = document.createElement('td');
+                var yourRank = document.createElement('td');
+                var trash = document.createElement('td');
+
+
+                var link = document.createElement('a')
+                link.innerHTML = semester.name;
+                link.href = '/feedback?semester=' + semester.name;
+                name.appendChild(link);
+                row.appendChild(name);
+
+                rank.innerHTML = semester.rating;
+                row.appendChild(rank);
+
+                if (semester.userRating == "none") {
+                    var link2 = document.createElement('a')
+                    link2.innerHTML = "Provide Feedback"
+                    link2.href = '/feedback?semester=' + semester.name;
+                    yourRank.appendChild(link2);
+                } else {
+                    yourRank.innerHTML = semester.userRating;
+                }
+                row.appendChild(yourRank);
+
+                var link2 = document.createElement('a');
+                var span = document.createElement('span');
+                span.className += "glyphicon glyphicon-trash";
+
+                link2.appendChild(span);
+
+                link2.setAttribute('data-toggle', 'modal');
+                link2.href = '#myModal';
+                link2.onclick = function () {
+                    assignSemesterName(semester.name);
+                }
+                trash.appendChild(link2);
+                row.appendChild(trash);
+
+                semesterList.appendChild(row);
+            }) ;
+        }
+
+        function assignSemesterName(name) {
+            var semesterNameInput = document.getElementById('semesterName');
+            semesterNameInput.value = name;
+        }
+
+    script.
+        var semesterInfo = !{semesterInfo}
