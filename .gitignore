@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+public/javascripts/rating-bundle.js
+public/javascripts/home-bundle.js
+public/javascripts/feedback-bundle.js
+/babel_cache

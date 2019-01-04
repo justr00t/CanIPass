@@ -1,0 +1,7 @@
+---
+applications:
+  - name: Can I Pass?
+    buildpack: https://github.com/cloudfoundry/buildpack-nodejs.git
+    instances: 1
+    memory: 1GB
+    command: node app.js
